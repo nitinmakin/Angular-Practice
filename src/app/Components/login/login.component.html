@@ -1,0 +1,39 @@
+<div class="main-div">
+    <mat-card class="child-main-div">
+        <h1 class="title">Sign In Here</h1>
+
+        <form [formGroup]="form" class="form">
+
+            <mat-form-field appearance="outline" class="name">
+                <mat-label>Email</mat-label>
+                <input formControlName="Email" matInput placeholder="Email" required>
+                <mat-error *ngIf="form.controls.Email.hasError('required')">
+                    Email is required
+                </mat-error>
+                <mat-error *ngIf="form.controls.Email.hasError('pattern')">
+                    please enter valid Email
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="name">
+                <mat-label>Password</mat-label>
+                <input formControlName="Password" matInput [type]="hide ? 'password' : 'text'" required>
+                <mat-error *ngIf="form.controls.Password.hasError('required')">
+                    Password is required
+                </mat-error>
+                <mat-error
+                    *ngIf="form.controls.Password.hasError('pattern') && !form.controls.Password.hasError('required')">
+                    1 letter, 1 number, 1symbol and 8 char long
+                </mat-error>
+            </mat-form-field>
+
+            <div class="button-main-div">
+                <button class="login-navigate" (click)="navigateRegister()">Back To Register</button>
+                <button class="register-button" (click)=" login()">Login</button>
+            </div>
+
+        </form>
+
+    </mat-card>
+
+</div>

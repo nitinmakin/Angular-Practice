@@ -1,0 +1,91 @@
+<div style="width: 100%; height:100%">
+
+    <div class="Main-divw">
+        <mat-card class="mat-cart">
+            <h1 class="title">Registration Form</h1>
+            <form [formGroup]="form" class="form">
+
+                <div class="name-container">
+                    <mat-form-field appearance="outline" class="name">
+                        <mat-label>First Name</mat-label>
+                        <input formControlName="FirstName" matInput placeholder="First Name" required>
+                        <mat-error *ngIf="form.controls.FirstName.hasError('required')">
+                            First Name is required
+                        </mat-error>
+                        <mat-error
+                            *ngIf="form.controls.FirstName.hasError('pattern') && !form.controls.FirstName.hasError('required')">
+                            please enter valid name
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="name1">
+                        <mat-label>Last Name</mat-label>
+                        <input formControlName="LastName" matInput placeholder="Last Name" required>
+                        <mat-error *ngIf="form.controls.LastName.hasError('required')">
+                            Last Name is required
+                        </mat-error>
+                        <mat-error
+                            *ngIf="form.controls.LastName.hasError('pattern') && !form.controls.LastName.hasError('required')">
+                            please enter valid name
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="name-container1">
+                    <mat-form-field appearance="outline" class="name">
+                        <mat-label>Email</mat-label>
+                        <input formControlName="Email" matInput placeholder="Email" required>
+                        <mat-error *ngIf="form.controls.Email.hasError('required')">
+                            Email is required
+                        </mat-error>
+                        <mat-error *ngIf="form.controls.Email.hasError('pattern')">
+                            please enter valid Email
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="name1">
+                        <mat-label>Phone</mat-label>
+                        <input formControlName="Phone" matInput placeholder=Phone required>
+                        <mat-error *ngIf="form.controls.Phone.hasError('required')">
+                            Phone Number is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="name-container1">
+                    <mat-form-field class="name" appearance="outline">
+                        <mat-label>Date of Birth</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="DOB" required>
+                        <mat-error *ngIf="form.controls.DOB.hasError('required')">
+                            DOB is required
+                        </mat-error>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="name1">
+                        <mat-label>Password</mat-label>
+                        <input formControlName="Password" matInput [type]="hide ? 'password' : 'text'" required>
+                        <mat-error *ngIf="form.controls.Password.hasError('required')">
+                            Password is required
+                        </mat-error>
+                        <mat-error
+                            *ngIf="form.controls.Password.hasError('pattern') && !form.controls.Password.hasError('required')">
+                            1 letter, 1 number, 1symbol and 8 char long
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="name-container1">
+                    <mat-radio-group aria-label="Select an option" class="name">
+                        <mat-radio-button value="1">Male</mat-radio-button>
+                        <mat-radio-button value="2">Female</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="button-main-div">
+                    <button class="login-navigate" (click)="navigateLogin()">Navigate To Login</button>
+                    <button class="register-button" (click)="register()">Register</button>
+                </div>
+            </form>
+        </mat-card>
+    </div>
+</div>
