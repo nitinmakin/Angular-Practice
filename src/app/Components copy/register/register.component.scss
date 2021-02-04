@@ -34,11 +34,13 @@
 }
 .title{
     padding-left: 40px;
+    //font-weight: bold;
     padding-top: 40px;
     color: #A03037;
     font-size: xx-large;
     border-radius: 10px;
 }
+
 .mat-cart{
     width: 40%;
     height: 560px;
@@ -73,6 +75,7 @@
     font-weight: bold
 }
 
+
 .register-button{
     width: 70px auto;
     height: 35px;
@@ -85,13 +88,20 @@
     border: 1px solid brown;
 }
 
+
 @media screen and (max-width:1300px) {
+
     .mat-cart{
         width: 60%;
         height: 560px;
         background: rgb(235, 235, 235);
     }
+
+
 }
+
+
+
 
 @media screen and (max-width:950px) {
     .mat-cart{
@@ -99,8 +109,10 @@
         height: 560px;
         background: rgb(235, 235, 235);
     }
+
 }
 
+  
 @media screen and (max-width:700px) {
     .mat-cart{
         width: 95%;
@@ -108,12 +120,16 @@
         background: rgb(235, 235, 235);
     }
 
+
     .Main-divw{
        
         padding-top: 60px;
     }
 }
 
+
+
+  
 @media screen and (max-width:600px) {
     .mat-cart{
         width: 100%;

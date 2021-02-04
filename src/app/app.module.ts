@@ -15,13 +15,16 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
 import { LoginComponent } from './Components/login/login.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { UserDashboardComponent } from './Components/user-dashboard/user-dashboard.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     MatNativeDateModule,
     MatRadioModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

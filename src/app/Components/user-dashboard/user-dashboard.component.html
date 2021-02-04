@@ -1,0 +1,353 @@
+
+<div class="personal">
+    <div style="width: 100%;
+ height:10%;
+  display:Flex;
+   justify-content: center;
+   margin-top: 8px">
+        <p class="personal-details-title">Personal Details</p>
+    </div>
+    <form [formGroup]="form" class="form">
+        <div class="name-container">
+            <mat-form-field appearance="outline" class="name">
+                <mat-label>First Name</mat-label>
+                <input formControlName="FirstName" matInput placeholder="First Name" required>
+                <mat-error *ngIf="form.controls.FirstName.hasError('required')">
+                    First Name is required
+                </mat-error>
+                <mat-error
+                    *ngIf="form.controls.FirstName.hasError('pattern') && !form.controls.FirstName.hasError('required')">
+                    please enter valid name
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="name">
+                <mat-label>Middle Name</mat-label>
+                <input formControlName="MiddleName" matInput placeholder="Middle Name" required>
+                <mat-error *ngIf="form.controls.MiddleName.hasError('required')">
+                    Middle Name is required
+                </mat-error>
+                <mat-error
+                    *ngIf="form.controls.MiddleName.hasError('pattern') && !form.controls.MiddleName.hasError('required')">
+                    please enter valid name
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="name1">
+                <mat-label>Last Name</mat-label>
+                <input formControlName="LastName" matInput placeholder="Last Name" required>
+                <mat-error *ngIf="form.controls.LastName.hasError('required')">
+                    Last Name is required
+                </mat-error>
+                <mat-error
+                    *ngIf="form.controls.LastName.hasError('pattern') && !form.controls.LastName.hasError('required')">
+                    please enter valid name
+                </mat-error>
+            </mat-form-field>
+
+        </div>
+
+        <div class="name-container1">
+            <mat-form-field appearance="fill" class="area-of-interest">
+                <mat-label>Area Of Interest</mat-label>
+                <input matInput formControlName="Interest" required>
+                <mat-error *ngIf="form.controls.Interest.hasError('required')">
+                        this field is required
+                    </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="Hobbies">
+                <mat-label>Hobbies</mat-label>
+                <input matInput formControlName="Hobbies" required>
+                <mat-error *ngIf="form.controls.Hobbies.hasError('required')">
+                        this field is required
+                    </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="name-container1">
+            <mat-form-field appearance="fill" class="area-of-interest">
+                <mat-label>Strength</mat-label>
+                <input matInput formControlName="Strength" required>
+                <mat-error *ngIf="form.controls.Strength.hasError('required')">
+                        this field is required
+                    </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="Hobbies">
+                <mat-label>Weakness</mat-label>
+                <input matInput formControlName="Weakness" required>
+                <mat-error *ngIf="form.controls.Weakness.hasError('required')">
+                        this field is required
+                    </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="name-container1">
+        
+            <mat-form-field appearance="fill" class="Info">
+                <mat-label>Few Words About You</mat-label>
+                <textarea matInput></textarea>
+            </mat-form-field>
+        </div>
+
+        <div class="button-personal-info-div">
+            <button class="button-personal-info" (click)="familyTrue()">Continue</button>
+        </div>
+    </form>
+</div>
+
+<div class="family-false" *ngIf="!familyDetails">
+    <p class="personal-details-title">Family Details</p>
+</div>
+
+<div class="family" *ngIf="familyDetails">
+    <div class="family-true">
+        <p class="personal-details-title">Family Details</p>
+    </div>
+
+    <form [formGroup]="form" class="form">
+        <div class="family-name-container">
+            <mat-form-field appearance="outline" class="parent-name">
+                <mat-label>Father's Name</mat-label>
+                <input formControlName="FatherName" matInput placeholder="Father's Name" required>
+                <mat-error *ngIf="form.controls.FatherName.hasError('required')">
+                    Father's Name is required
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="parent-name">
+                <mat-label>Mother's Name</mat-label>
+                <input formControlName="MotherName" matInput placeholder="Mother's Name" required>
+                <mat-error *ngIf="form.controls.MotherName.hasError('required')">
+                    Mother's Name is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="family-name-container">
+            <mat-form-field appearance="fill" class="parent-DOB">
+                <mat-label>Father's DOB</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="FatherDOB" required>
+                <mat-error *ngIf="form.controls.FatherDOB.hasError('required')">
+                   Father's Date Of Birth is required
+                </mat-error>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="fill" class="parent-DOB">
+                    <mat-label>Mother's DOB</mat-label>
+                    <input matInput [matDatepicker]="picker1" formControlName="MotherDOB" required>
+                    <mat-error *ngIf="form.controls.MotherDOB.hasError('required')">
+                       Mothers's Date Of Birth is required
+                    </mat-error>
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+
+        </div>
+
+        <div class="family-name-container">
+            <mat-form-field appearance="fill" class="parent-DOB">
+                <mat-label>Father's Occupation</mat-label>
+                <input matInput  formControlName="FatherOccupation" required>
+                <mat-error *ngIf="form.controls.FatherOccupation.hasError('required')">
+                        Father's Occupation is required
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="parent-DOB">
+                <mat-label>Mother's Occupation</mat-label>
+                <input matInput formControlName="MotherOccupation" required>
+                <mat-error *ngIf="form.controls.MotherOccupation.hasError('required')">
+                        Mother's Occupation is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="button-family-info-div">
+            <button class="button-personal-info" (click)="EducationTrue()">Continue</button>
+        </div>
+    </form>
+</div>
+
+<div class="family-false" *ngIf="!EducationalDetails">
+    <p class="personal-details-title">Educational Details</p>
+</div>
+
+<div class="family" *ngIf="EducationalDetails">
+    <div class="family-true">
+        <p class="personal-details-title">Educational Details</p>
+    </div>
+
+    <form [formGroup]="form" class="form">
+    <div class="name-container">
+        <mat-form-field appearance="fill" class="name">
+            <mat-label>Highest Qualification</mat-label>
+            <mat-select [(value)]="selected" >
+                <mat-option>None</mat-option>
+                <mat-option value="option1">B.E</mat-option>
+                <mat-option value="option2">B-Tech</mat-option>
+                <mat-option value="option3">M-Tech</mat-option>
+                <mat-option value="option4">MBA</mat-option>
+                <mat-option value="option5">MCA</mat-option>
+                <mat-option value="option6">BCA</mat-option>
+                <mat-option value="option7">B.A</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="name">
+            <mat-label>Percentage OR CGPA</mat-label>
+            <input matInput formControlName="HQPercentage" required>
+            <mat-error *ngIf="form.controls.HQPercentage.hasError('required')">
+                    Highest Qualification is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="name1">
+            <mat-label>Year Of Passout</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="YOPHQ" required>
+            <mat-error *ngIf="form.controls.YOPHQ.hasError('required')">
+                    YOP is required
+            </mat-error>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+    </div>
+   
+
+    <div class="Eucational-container">
+        <mat-form-field appearance="fill" class="name">
+            <mat-label>12th OR Diploma</mat-label>
+            <input matInput formControlName="fiels12" required>
+            <mat-error *ngIf="form.controls.fiels12.hasError('required')">
+                   Field is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="name">
+            <mat-label>Percentage In 12th Or Diploma</mat-label>
+            <input matInput formControlName="PR12" required>
+            <mat-error *ngIf="form.controls.PR12.hasError('required')">
+                   Field is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="name1">
+            <mat-label>Year Of Passout</mat-label>
+            <input matInput [matDatepicker]="picker3" formControlName="YOP12" required>
+            <mat-error *ngIf="form.controls.YOP12.hasError('required')">
+                   Field is required
+            </mat-error>
+            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+            <mat-datepicker #picker3></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <div class="Eucational-container">
+        <mat-form-field appearance="fill" class="name">
+            <mat-label>10th Std</mat-label>
+            <input matInput formControlName="fiels10" required>
+            <mat-error *ngIf="form.controls.fiels10.hasError('required')">
+                   Field is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="name">
+            <mat-label>Percentage In 10th Std</mat-label>
+            <input matInput formControlName="Per10" required>
+            <mat-error *ngIf="form.controls.Per10.hasError('required')">
+                   Field is required
+            </mat-error>
+        </mat-form-field>
+
+        <div style="padding-top: 15px">
+            <button class="button-personal-info" (click)="professionalTrue()">Continue</button>
+        </div>
+
+    </div>
+</form>
+
+
+</div>
+<div class="family-false" *ngIf="!ProfessionalDetails">
+    <p class="personal-details-title">Professional Details</p>
+</div>
+
+<div class="family" *ngIf="ProfessionalDetails">
+    <div class="family-true">
+        <p class="personal-details-title">Professional Details</p>
+    </div>
+
+
+    <div class="name-container">
+        <mat-form-field appearance="fill" class="name">
+            <mat-label>Organization</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="name">
+            <mat-label>Role</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="name1">
+            <mat-label>Current CTC P/A</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+    <div class="name-container1">
+        <mat-form-field appearance="fill" class="name">
+            <mat-label>Organization EMail</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="name">
+            <mat-label>Personal Email</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="name1">
+            <mat-label>Personal Phone</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+    <div class="name-container1">
+        <mat-form-field appearance="fill" class="name">
+            <mat-label>Current Location</mat-label>
+            <mat-select [(value)]="selected1">
+                <mat-option>None</mat-option>
+                <mat-option value="option1">Hydrabad</mat-option>
+                <mat-option value="option2">Kolkata</mat-option>
+                <mat-option value="option3">Mumbai</mat-option>
+                <mat-option value="option4">Bangalore</mat-option>
+                <mat-option value="option5">Pune</mat-option>
+                <mat-option value="option6">Vijaywada</mat-option>
+                <mat-option value="option7">Chennai</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="name">
+            <mat-label>Prefered Location</mat-label>
+            <mat-select [(value)]="selected2">
+                <mat-option>None</mat-option>
+                <mat-option value="option1">Hydrabad</mat-option>
+                <mat-option value="option2">Kolkata</mat-option>
+                <mat-option value="option3">Mumbai</mat-option>
+                <mat-option value="option4">Bangalore</mat-option>
+                <mat-option value="option5">Pune</mat-option>
+                <mat-option value="option6">Vijaywada</mat-option>
+                <mat-option value="option7">Chennai</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div style="padding-top: 15px">
+            <button class="button-personal-info" (click)="professionalTrue()">Submit</button>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+<div style="margin-bottom: 50px">
+
+</div>

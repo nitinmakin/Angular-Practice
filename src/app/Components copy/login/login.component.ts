@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
 
   login(){
     if(this.form.valid){
-      this._route.navigate(['/dashboard'])
+      this.navigateRegister();
       this.snakeBar.snakeBarMethod("Login Successful");
     }
     else{
