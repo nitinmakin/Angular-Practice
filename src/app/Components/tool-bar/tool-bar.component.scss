@@ -1,0 +1,49 @@
+.toolbar-container{
+    height: 50px;
+    width: 100%;
+    background: brown;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+.input-card {
+    width: 760px;
+    height: 40px;
+    margin-left: 4vw;
+    margin-top: 6px;
+    transition: none !important;
+    box-shadow: none !important;
+    background-color: white;
+    display: flex;
+    justify-content: start;
+}
+
+.icon1{
+    margin-top: 7px;
+    padding-left: 10px;
+    border: none;
+    outline: none;
+  }
+
+  .profile-image{
+    width: 50px;
+    height: 50px;
+border: none;
+outline: none;
+    border-radius: 50%;
+    margin-left: 500px;
+  }
+
+
+  .search{
+      border: none;
+      outline: none;
+  font-size: large;
+    margin-left: 5px;
+    height: 37px;
+ 
+  }
+  
+
+    

@@ -17,6 +17,11 @@ import { LoginComponent } from './Components/login/login.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { UserDashboardComponent } from './Components/user-dashboard/user-dashboard.component';
 import {MatSelectModule} from '@angular/material/select';
+import { ToolBarComponent } from './Components/tool-bar/tool-bar.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ConformationComponent } from './Components/conformation/conformation.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -24,7 +29,9 @@ import {MatSelectModule} from '@angular/material/select';
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    ToolBarComponent,
+    ConformationComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,11 @@ import {MatSelectModule} from '@angular/material/select';
     MatNativeDateModule,
     MatRadioModule,
     MatSnackBarModule,
-    MatSelectModule
+    MatSelectModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatCheckboxModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

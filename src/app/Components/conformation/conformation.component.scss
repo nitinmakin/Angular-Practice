@@ -1,0 +1,29 @@
+.example-section {
+    margin: 12px 0;
+  }
+  
+  .example-margin {
+    margin: 0 12px;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin-top: 4px;
+  }
+  .button-personal-info{
+    margin-right: 30px;
+    height: 40px;
+    width: 120px;
+    color: white;
+    border: none;
+    outline: none;
+    background: brown;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.terms-condition{
+    display: flex;
+    justify-content: space-between;
+
+}
