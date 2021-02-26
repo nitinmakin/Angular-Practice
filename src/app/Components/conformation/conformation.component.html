@@ -30,6 +30,5 @@
         <mat-checkbox class="example-margin">I accept all the terms and conditions</mat-checkbox>
     </section>
 
-    <button *ngIf="termsCondition" class="button-personal-info">Submit</button>
-
+    <button *ngIf="termsCondition" class="button-personal-info" [mat-dialog-close]="true" (click)="navigateLogin()">Submit</button>
 </div>

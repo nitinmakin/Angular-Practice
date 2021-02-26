@@ -1,0 +1,11 @@
+{
+  "products": [
+    {
+      "id": "d1",
+      "name": "Full Suit",
+      "image": "../../../assets/Images/cloth1.jpg",
+      "discriotion": "deferfr",
+      "price": 999
+    }
+  ]
+}

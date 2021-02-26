@@ -11,33 +11,40 @@ import { UtilityServiceService } from "../../Service/utility-service.service";
 })
 export class LoginComponent implements OnInit {
 
+  hide:boolean=true;
+  email:string="";
+  password:string="";
+  form:FormGroup;
+
+
   constructor(private fb: FormBuilder,
-    private _route: Router,private snakeBar:UtilityServiceService) { 
-
-
+    private _route: Router,private utilityService:UtilityServiceService) { 
       this.form = this.fb.group({
         Email: ["", Validators.email],
         Password: ["", Validators.pattern('[A-Za-z0-9\\d!$%@#£€*?&]{8,}$')],
       })  
     }
 
-  form:any = FormGroup;
-  hide:any=true;
-
-
+  
+ 
 
   navigateRegister(){
     this._route.navigate(['/register'])
   }
-  
 
   login(){
     if(this.form.valid){
-      this._route.navigate(['/dashboard'])
-      this.snakeBar.snakeBarMethod("Login Successful");
+      if(this.email == "admin@gmail.com"){
+      this._route.navigate(['/adminpanal'])
+      this.utilityService.displaySnakeBar(" Admin Login Successful");
+    }
+      else {
+        this._route.navigate(['/dashboard'])
+        this.utilityService.displaySnakeBar(" user Login Successful");
+      }
     }
     else{
-      this.snakeBar.snakeBarMethod("Plese enter valid email and password");
+      this.utilityService.displaySnakeBar("Plese enter valid email and password");
     }
   }
 

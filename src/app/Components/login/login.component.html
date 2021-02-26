@@ -1,12 +1,19 @@
 <div class="main-div main-body-tag">
+    <div class="data-binding-example">
+        <h1>Example of 2 way data binding</h1>
+            Email is : <h2>{{email}}</h2>
+            Password is: <h2>{{password}}</h2>
+    </div>
+       
     <mat-card class="child-main-div">
+        
         <h1 class="title">Sign In Here</h1>
 
         <form [formGroup]="form" class="form">
 
             <mat-form-field appearance="outline" class="name">
                 <mat-label>Email</mat-label>
-                <input formControlName="Email" matInput placeholder="Email" required>
+                <input formControlName="Email" matInput placeholder="Email"  [(ngModel)]='email' required>
                 <mat-error *ngIf="form.controls.Email.hasError('required')">
                     Email is required
                 </mat-error>
@@ -17,7 +24,7 @@
 
             <mat-form-field appearance="outline" class="name">
                 <mat-label>Password</mat-label>
-                <input formControlName="Password" matInput [type]="hide ? 'password' : 'text'" required>
+                <input formControlName="Password" matInput [type]="hide ? 'password' : 'text'"  [(ngModel)]='password' required>
                 <mat-error *ngIf="form.controls.Password.hasError('required')">
                     Password is required
                 </mat-error>
@@ -29,11 +36,8 @@
 
             <div class="button-main-div">
                 <button class="login-navigate" (click)="navigateRegister()">Back To Register</button>
-                <button class="register-button" (click)=" login()">Login</button>
+                <button class="register-button" (click)="login()">Login</button>
             </div>
-
         </form>
-
     </mat-card>
-
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-conformation',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConformationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 termsCondition:boolean=false;
 
+
+navigateLogin(){
+  this.route.navigate(['/login'])
+  }
 
 
 termsConditionTrue(){

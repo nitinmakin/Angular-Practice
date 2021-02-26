@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UtilityServiceService } from "../../Service/utility-service.service";
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA,} from '@angular/material/dialog';
 import { ConformationComponent } from "../conformation/conformation.component";
-
 
 @Component({
   selector: 'app-user-dashboard',
@@ -11,8 +10,8 @@ import { ConformationComponent } from "../conformation/conformation.component";
   styleUrls: ['./user-dashboard.component.scss']
 })
 export class UserDashboardComponent implements OnInit {
-  form: any = FormGroup;
-  hide: any = true;
+  form: FormGroup;
+  hide: boolean = true;
   familyDetails: boolean = false;
   familyDetailsTick: boolean = false;
   EducationalDetails: boolean = false;
@@ -25,7 +24,7 @@ export class UserDashboardComponent implements OnInit {
   selected1 = 'none';
   selected2 = 'none';
   ProfessionalDetails: boolean = false;
-  constructor(private fb: FormBuilder, private snakebar: UtilityServiceService,public dialog: MatDialog) {
+  constructor(private fb: FormBuilder, private utilityService: UtilityServiceService,public dialog: MatDialog) {
     this.form = this.fb.group({
       FirstName: ["", Validators.pattern('[a-zA-Z]{2,}')],
       LastName: ["", Validators.pattern('[a-zA-Z]{2,}')],
@@ -51,13 +50,13 @@ export class UserDashboardComponent implements OnInit {
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(ConformationComponent, {
-     
     });
 
     dialogRef.afterClosed().subscribe(result => {
-    
+      console.log(`Dialog result: ${result}`);
     });
   }
+
   experianceTrue() {
     this.Experiance = true;
   }
@@ -65,6 +64,11 @@ export class UserDashboardComponent implements OnInit {
   experianceFalse() {
     this.Experiance = false;
     this.FresherSubmitButton = true;
+  }
+
+  backToFresher(){
+    this.Experiance = false;
+    this.FresherSubmitButton = false;
   }
 
   private map = new Map<string, string[]>([
@@ -75,6 +79,7 @@ export class UserDashboardComponent implements OnInit {
     ['BBA', ['BBA1', 'BBA2', 'BBA3', 'BBA4']],
     ['MCA', ['MCA1', 'MCA2', 'MCA3', 'MCA4']],
   ])
+
   HighestQulification: any;
   Stream: any;
   get HighestQulifications(): string[] {
@@ -83,7 +88,7 @@ export class UserDashboardComponent implements OnInit {
   get Streams(): string[] | undefined {
     return this.map.get(this.HighestQulification);
   }
-
+email:string="nitinmakin124@gmail.com"
 
   familyTrue() {
      if(this.form.valid){
@@ -92,7 +97,7 @@ export class UserDashboardComponent implements OnInit {
       this.PersonalDetails= false;
      }
      else{
-       this.snakebar.snakeBarMethod("Plese Fill All Mandatery Fields")
+       this.utilityService.displaySnakeBar("Plese Fill All Mandatery Fields")
      }
     // this.familyDetails = true;
     // this.familyDetailsTick = true;
@@ -105,7 +110,7 @@ export class UserDashboardComponent implements OnInit {
         this.familyDetails = false;
      }
      else{
-       this.snakebar.snakeBarMethod("Plese Fill All Mandatery Fields")
+       this.utilityService.displaySnakeBar("Plese Fill All Mandatery Fields")
      }
     // this.EducationalDetails = true;
     // this.EducationalDetailsTick = true;
@@ -119,7 +124,7 @@ export class UserDashboardComponent implements OnInit {
      this.EducationalDetails = false;
      }
      else{
-       this.snakebar.snakeBarMethod("Plese Fill All Mandatery Fields")
+       this.utilityService.displaySnakeBar("Plese Fill All Mandatery Fields")
      }
     // this.ProfessionalDetails = true;
     // this.EducationalDetails = false;

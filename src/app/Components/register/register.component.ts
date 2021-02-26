@@ -10,10 +10,10 @@ import { UtilityServiceService } from "../../Service/utility-service.service";
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  form:any = FormGroup;
-  hide:any=true;
+  form:FormGroup;
+  hide:boolean=true;
   constructor(private fb: FormBuilder,
-    private _route: Router, private snakeBar:UtilityServiceService) { 
+    private _route: Router, private utilityService:UtilityServiceService) { 
 
       this.form = this.fb.group({
 
@@ -37,6 +37,9 @@ export class RegisterComponent implements OnInit {
 navigateLogin(){
   this._route.navigate(['/login'])
 }
+navigateInfo(){
+  this._route.navigate(['info'])
+}
 dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
   if (view === 'month') {
   const date = cellDate.getDate();
@@ -47,12 +50,12 @@ dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
 
 register(){
   if(this.form.valid){
-    this.navigateLogin();
-    this.snakeBar.snakeBarMethod("Registration Successful")
+    this.navigateInfo();
+    this.utilityService.displaySnakeBar("Registration Successful")
   }
 
   else{
-    this.snakeBar.snakeBarMethod("Enter Valid records")
+    this.utilityService.displaySnakeBar("Enter Valid records")
   }
 }
 

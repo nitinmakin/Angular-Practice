@@ -22,6 +22,13 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ConformationComponent } from './Components/conformation/conformation.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { DisplayProductsComponent } from './Components/display-products/display-products.component';
+import { CartComponent } from './Components/cart/cart.component';
+import { AddProductComponent } from './Components/add-product/add-product.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AdminPanalComponent } from './Components/admin-panal/admin-panal.component';
+import {MatTableModule} from '@angular/material/table';
+import { DashBoardComponent } from './Components/dash-board/dash-board.component';
 
 
 @NgModule({
@@ -31,7 +38,12 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     LoginComponent,
     UserDashboardComponent,
     ToolBarComponent,
-    ConformationComponent
+    ConformationComponent,
+    DisplayProductsComponent,
+    CartComponent,
+    AddProductComponent,
+    AdminPanalComponent,
+    DashBoardComponent
   ],
   imports: [
     BrowserModule,
@@ -51,9 +63,11 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatSelectModule,
     MatMenuModule,
     MatDialogModule,
-    MatCheckboxModule
-    
+    MatCheckboxModule,
+    HttpClientModule,
+    MatTableModule
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

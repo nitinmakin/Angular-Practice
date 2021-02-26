@@ -1,23 +1,20 @@
 import { Injectable } from '@angular/core';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilityServiceService {
+  constructor(public snackBar: MatSnackBar) { }
 
-  constructor(public snakeBar:MatSnackBar) { }
-
-
-  
-  public snakeBarMethod(message:any){
-    this.snakeBar.open(message, 'cancel')
-   
+  public displaySnakeBar(message: any) {
+    this.snackBar.open(message, 'cancle' , {
+    
+      panelClass: ['my-custom-snackbar'],
+    })
     setTimeout(() => {
-      this.snakeBar.dismiss();
-    }, 2000)
+           this.snackBar.dismiss();
+       }, 2500);
   }
-
-
-
 }

@@ -1,0 +1,102 @@
+.form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+.name-container{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.name-container1{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 55px
+}
+.Info{
+    width: 85%;
+    margin-left: 43px;
+    margin-right: 20px;
+ 
+}
+.file{
+    margin-left: 180px;
+    margin-top: 5px;
+}
+.input-file{
+    outline: none;
+}
+
+.name{
+    width: 85%;
+    height: 30px;
+    margin-left: 40px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+.name1{
+    width: 45%;
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 40px;
+}
+.title{
+    padding-left: 40px;
+    padding-top: 40px;
+    color: #A03037;
+    font-size: xx-large;
+    border-radius: 10px;
+}
+.mat-cart{
+    width: 100%;
+    height: 560px;
+    background: rgb(235, 235, 235);
+}
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+.Main-divw{
+    display: flex;
+    justify-content: center;
+   // padding-top: 120px;
+}
+
+.button-main-div{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.login-navigate{
+    width: 110px auto;
+    height: 35px;
+    background-color: #A03037;
+    border: none;
+    outline: none;
+    font-size: small;
+    color: white;
+    font-weight: bold
+}
+
+.register-button{
+    width: 110px;
+    height: 35px;
+    background-color: #A03037;
+    border: none;
+    outline: none;
+    font-size: small;
+    color: white;
+    font-weight: bold;
+    border: 1px solid brown;
+    margin-right: 20px;
+}

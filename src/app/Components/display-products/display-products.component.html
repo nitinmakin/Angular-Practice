@@ -1,0 +1,25 @@
+<app-tool-bar></app-tool-bar>
+<div class="main-div">
+    <div *ngFor="let array of array let i = index">
+    <div class="chield-div"   *ngIf="!cartCondition[i]" >
+        <div style="display: flex;justify-content: center; height: 60%;">
+            <img [src]="sanitizeImageUrl(array.Image)" alt="" style="width: 100%; height:100%;">
+        </div>
+        <div class="bookName">
+            {{array.Name}}
+        </div>
+        <div class="price">
+            Rs. {{array.Price}}
+        </div>
+        <div class="button-div">
+            <button class="wishlist-cart-button" *ngIf="!cartButtonCondition[i] && !cart">ADD TO WISHLIST</button>
+            <button class="wishlist-cart-button" (click)="getId(array.id,i)"
+                *ngIf="!cartButtonCondition[i] &&!cart ">ADD TO CART</button>
+            <button class="wishlist-cart-button1" *ngIf="cartButtonCondition[i]" (click)="message()">ADDED TO
+                CART</button>
+            <button class="wishlist-cart-button" *ngIf="cart" (click)="cardConditionFalse(i)">REMOVE TO CART</button>
+            <button class="wishlist-cart-button" *ngIf="cart" (click)="placeOrder(i)">PLACE ORDER</button>
+        </div>
+    </div>
+</div>
+</div>

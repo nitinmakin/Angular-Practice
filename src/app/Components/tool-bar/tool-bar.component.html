@@ -1,14 +1,26 @@
 <div class="toolbar-container">
-        <div  class="input-card">
-            <mat-icon class="icon1">search</mat-icon>
-            <input type="search" placeholder="Search..." class="search">
-        </div>
+  <h1 class="title">Shop Here</h1>
+  <div class="input-card">
+    <mat-icon class="icon1">search</mat-icon>
+    <input type="search" placeholder="Search..." class="search">
+  </div>
+  <!-- <img src="../../../assets/Images/wishlist2.jpg" alt="" style="width: 50px;height: 40px; margin-top: 9px; background: transparent" (click)="navigateCart()"> -->
 
+  <img src="../../../assets/Images/cart1.svg" alt="" style="width: 30px;height: 30px; margin-top: 9px;" (click)="navigateCart()">
 
-        <button mat-button [matMenuTriggerFor]="beforeMenu" class="profile-image"><img src="../../../assets/Images/prf.jpg" style="width: 50px;height: 50px; border-radius: 50%;
+  
+  <button mat-button [matMenuTriggerFor]="beforeMenu" class="profile-image"><img src="../../../assets/Images/prf.jpg"
+      style="width: 50px;height: 50px; border-radius: 50%;
         border: none;outline: none;" alt=""></button>
-        <mat-menu #beforeMenu="matMenu" xPosition="before">
-          <button mat-menu-item (click)="logout()">Log Out</button>
-        
-        </mat-menu>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <div style="display: flex; justify-content: center; flex-direction: column; width: 200px; height: 200px">
+
+      <img src="../../../assets/Images/prf.jpg" style="width: 80px;height: 80px; border-radius: 50%;margin-left: 53px;
+              border: none;outline: none;" alt="">
+      <p style="margin-left: 10px">{{email}}</p>
+      <button (click)="logout()"
+        style="background: brown; width: 90px;height: 35px; color: white;font-size: small; font-weight: bold;border: none;margin-left: 53px;margin-top: 20px">Log
+        Out</button>
+    </div>
+  </mat-menu>
 </div>
